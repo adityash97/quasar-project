@@ -17,27 +17,6 @@ const links = [
     children: [],
   },
   {
-    title: 'Test Sub page1',
-    icon: 'search',
-    to: { name: 'test-subpage1' },
-    level: 0,
-    children: [],
-  },
-  {
-    title: 'Test Sub page 2',
-    icon: 'search',
-    to: { name: 'test-subpage2' },
-    level: 0,
-    children: [],
-  },
-  {
-    title: 'Test Sub page 3',
-    icon: 'search',
-    to: { name: 'test-subpage3' },
-    level: 0,
-    children: [],
-  },
-  {
     title : 'Reaction Timer',
     icon : 'bolt',
     to:{name:'games/ReactionTimer'},
