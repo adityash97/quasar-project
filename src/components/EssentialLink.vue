@@ -9,7 +9,7 @@
         :header-inset-level="props.level"
         default-closed
       >
-      <!-- if multi level links -->
+        <!-- if multi level links -->
       </q-expansion-item>
     </div>
     <div v-else>
@@ -26,7 +26,6 @@
           </q-item-section>
           <q-item-section>{{ props.title }}</q-item-section>
         </q-item>
-
       </div>
       <div v-else>
         <q-item
@@ -41,7 +40,6 @@
           </q-item-section>
           <q-item-section>{{ props.title }}</q-item-section>
         </q-item>
-
       </div>
     </div>
   </div>
@@ -58,7 +56,7 @@ interface EssentialLinkProps {
   children?: EssentialLinkProps[];
 }
 const props = withDefaults(defineProps<EssentialLinkProps>(), {
-  title : () => 'no title',
+  title: () => 'no title',
   caption: () => '',
   to: () => ({}),
   href: () => '',

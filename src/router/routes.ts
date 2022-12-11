@@ -1,10 +1,10 @@
 import { RouteRecordRaw } from 'vue-router';
-import testroutes from './testRoutes'
+import testroutes from './testRoutes';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/TestLayout.vue'),
-    children: testroutes
+    children: testroutes,
   },
 
   // Always leave this as last one,
