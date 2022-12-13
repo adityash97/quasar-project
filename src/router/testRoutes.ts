@@ -28,5 +28,11 @@ export default [
     path:'jobs',
     name:'JobComponent',
     component: () => import('components/Job/JobComponent.vue'),
+  },
+  {
+    path : 'job/:id',
+    name: 'JobDetails',
+    component: () => import('components/Job/JobDetails.vue'),
+
   }
 ];

@@ -40,7 +40,7 @@ const links = [
   {
     title: 'Job',
     icon: 'group',
-    to: { name: 'jobs' },
+    to: { name: 'JobComponent' },
     level: 0,
     children: [],
   }
