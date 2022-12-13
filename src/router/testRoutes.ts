@@ -24,4 +24,9 @@ export default [
     name: 'test-subpage3',
     component: () => import('components/Test/test-2.vue'),
   },
+  {
+    path:'jobs',
+    name:'JobComponent',
+    component: () => import('components/Job/JobComponent.vue'),
+  }
 ];

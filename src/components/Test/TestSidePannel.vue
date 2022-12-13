@@ -37,5 +37,12 @@ const links = [
     level: 0,
     children: [],
   },
+  {
+    title: 'Job',
+    icon: 'group',
+    to: { name: 'jobs' },
+    level: 0,
+    children: [],
+  }
 ];
 </script>
