@@ -63,7 +63,7 @@ const stopTimer = () =>{
   showBlockArea.value = false
   showResult.value = true
   reactionTime.value = Math.round(reactionTime.value/1000)
-  console.log("Timer value",reactionTime.value)
+  console.log('Timer value',reactionTime.value)
 }
 
 </script>
