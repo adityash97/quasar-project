@@ -6,7 +6,7 @@ export default [
 
 
 {
-  path:'/',
+  path:'',
   name:'projectplanner/ProjectPlanner',
   component: () => import ('pages/projectplanner/ProjectPlanner.vue')
 }

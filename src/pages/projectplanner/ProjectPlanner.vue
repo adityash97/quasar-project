@@ -5,7 +5,7 @@
         v-model="tab"
         class="text-teal"
       >
-        <q-tab name="project(s)" icon="difference" label="Project(s)" @click="() => {showProjectsFlag = true,showAddProjectFlag = false}"/>
+        <q-tab name="projects" icon="difference" label="Project(s)" @click="() => {showProjectsFlag = true,showAddProjectFlag = false}"/>
         <q-tab name="add_new_project" icon="add_box" label="Add New Project " @click="() => {showAddProjectFlag = true,showProjectsFlag = false}"/>
       </q-tabs>
 
@@ -27,19 +27,26 @@
           <q-card-section class="q-gutter-lg">
             <show-all-projects
             v-if="showAllProjectsFlag"
-            @show-project-form="showProjectFormFlag = true"
             v-model="projectData"
+            @show-project-form="showProjectFormHandler"
+            @toggle-completed="toggelCompleted"
+            @on-delete = "onDelete"
             />
 
             <completed-projects
             v-else-if="showcompletedProjectsFlag"
-            @show-project-form="showProjectFormFlag = true"
             v-model="completedProjectsData"
+            @show-project-form="showProjectFormHandler"
+            @toggle-completed="toggelCompleted"
+            @on-delete = "onDelete"
             />
 
             <on-going-projects
             v-else-if="showOnGoingProjectsFlag"
             v-model="onGoingProjectsData"
+            @show-project-form="showProjectFormHandler"
+            @toggle-completed="toggelCompleted"
+            @on-delete = "onDelete"
             />
 
           </q-card-section>
@@ -49,12 +56,23 @@
 
       </template>
 
+      <!-- Add Project  -->
+
+      <template v-if="showAddProjectFlag">
+        <project-form
+        @on-submit="onSubmitProjectForm"
+      />
+      </template>
 
 
     </div>
 
     <q-dialog v-model="showProjectFormFlag">
-      <project-form/>
+      <project-form
+      :project-form-data = "projectFormData"
+      :is-edit = "isEditProject"
+      @on-submit="onSubmitProjectForm"
+      />
     </q-dialog>
   </q-page>
 </template>
@@ -67,18 +85,23 @@ import CompletedProjects from 'src/components/projectplanner/CompletedProjects.v
 import OnGoingProjects from 'src/components/projectplanner/OnGoingProjects.vue';
 import ProjectForm from 'src/components/projectplanner/ProjectForm.vue';
 import useProjectPlannerStore from 'src/stores/projectplannerstore'
+import { useQuasar } from 'quasar';
+
+const quasar = useQuasar();
 
 
 const projectPlannerStore = useProjectPlannerStore()
 
-const tab = ref('difference')
-const innerTab = ref('apps')
-const showProjectsFlag = ref(false)
+const tab = ref('projects')
+const innerTab = ref('view_all')
+const showProjectsFlag = ref(true)
 const showAddProjectFlag = ref(false)
-const showAllProjectsFlag = ref(false)
+const showAllProjectsFlag = ref(true)
 const showcompletedProjectsFlag = ref(false)
 const showOnGoingProjectsFlag = ref(false)
 const showProjectFormFlag = ref(false)
+const isEditProject = ref(false)
+const projectFormData = ref()
 const projectData = computed(() => projectPlannerStore.projectData)
 const completedProjectsData = computed(() => projectPlannerStore.getCompletedProject())
 const onGoingProjectsData = computed(() => projectPlannerStore.getOnGoingProject())
@@ -100,6 +123,43 @@ const innerFlagSetter = (flag : string) =>{
     showAllProjectsFlag.value = false
     showcompletedProjectsFlag.value = false
     showOnGoingProjectsFlag.value = true
+  }
+}
+
+const onSubmitProjectForm = async (data : object,isEdit : boolean) =>{
+  try {
+    projectPlannerStore.updateProject(data,isEdit)
+    showProjectFormFlag.value = false
+    tab.value  ='projects'
+    showProjectsFlag.value = true
+    showAddProjectFlag.value = false
+    quasar.notify('Saved Successfully');
+  } catch (error) {
+    quasar.notify('Falied To Update');
+  }
+}
+
+const showProjectFormHandler = (data : object,isEdit:boolean) =>{
+  showProjectFormFlag.value = true
+  projectFormData.value = data
+  isEditProject.value = isEdit
+}
+
+const toggelCompleted = async (projectObject : object) =>{
+  try {
+    projectPlannerStore.toggleCompleted(projectObject)
+    quasar.notify('Saved Successfully');
+  } catch (error) {
+    quasar.notify('Falied To Update');
+  }
+}
+
+const onDelete = async (projectObject: object) =>{
+  try {
+    projectPlannerStore.deleteProject(projectObject)
+    quasar.notify('Deleted Successfully');
+  } catch (error) {
+    quasar.notify('Falied To Delete');
   }
 }
 

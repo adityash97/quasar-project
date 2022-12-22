@@ -15,13 +15,13 @@
             <!-- delete -->
             <div class="col">
             <q-btn round>
-              <q-avatar  icon="delete"  text-color="negative"/>
+              <q-avatar  icon="delete"  text-color="negative" @click="$emit('onDelete',project)"/>
             </q-btn>
             </div>
             <!-- edit -->
             <div class="col">
               <div class="col">
-                <q-btn round @click="$emit('showProjectForm')">
+                <q-btn round @click="$emit('showProjectForm',project,true)">
                   <q-avatar  icon="edit"  text-color="warning"/>
                 </q-btn>
               </div>
@@ -30,10 +30,9 @@
             <div class="col">
               <div class="col">
                 <q-btn round>
-                  <q-avatar  icon="check"  :text-color="project.completed ?  'positive' : '' "/>
+                  <q-avatar  icon="check"  :text-color="project.completed ?  'positive' : '' " @click="$emit('toggleCompleted',project)"/>
                 </q-btn>
               </div>
-
             </div>
           </div>
 
@@ -47,7 +46,9 @@
 
 <script setup lang="ts">
 import {computed} from 'vue'
-defineEmits(['showProjectForm'])
+
+
+defineEmits(['showProjectForm','toggleCompleted','onDelete'])
 const props = defineProps({
   project:{
     type:Object,
@@ -58,7 +59,6 @@ const props = defineProps({
 })
 const project = computed(() => props.project)
 
-console.log("projects from card : ",project.value)
 
 
 
