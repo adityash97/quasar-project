@@ -43,6 +43,13 @@ const links = [
     to:{name:'games/ReactionTimer'},
     level: 0,
     children:[]
+  },
+  {
+    title : 'Project Planner',
+    icon : 'checklist',
+    to:{name:'projectplanner/ProjectPlanner'},
+    level: 0,
+    children:[]
   }
 ];
 </script>
