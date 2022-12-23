@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from 'vue-router';
 import testroutes from './testRoutes';
 import gameroutes from './gameroutes';
-import projectplannerroutes from './projectplanner'
+import projectplannerroutes from './projectplanner';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -10,15 +10,14 @@ const routes: RouteRecordRaw[] = [
     children: testroutes,
   },
   {
-    path:'/games',
+    path: '/games',
     component: () => import('layouts/GameLayout.vue'),
-    children:gameroutes,
+    children: gameroutes,
   },
   {
-    path:'/todo',
+    path: '/todo',
     component: () => import('layouts/ProjectPlannerLayout.vue'),
-    children:projectplannerroutes,
-
+    children: projectplannerroutes,
   },
 
   // Always leave this as last one,

@@ -38,18 +38,18 @@ const links = [
     children: [],
   },
   {
-    title : 'Reaction Timer',
-    icon : 'bolt',
-    to:{name:'games/ReactionTimer'},
+    title: 'Reaction Timer',
+    icon: 'bolt',
+    to: { name: 'games/ReactionTimer' },
     level: 0,
-    children:[]
+    children: [],
   },
   {
-    title : 'Project Planner',
-    icon : 'checklist',
-    to:{name:'projectplanner/ProjectPlanner'},
+    title: 'Project Planner',
+    icon: 'checklist',
+    to: { name: 'projectplanner/ProjectPlanner' },
     level: 0,
-    children:[]
-  }
+    children: [],
+  },
 ];
 </script>

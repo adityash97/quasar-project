@@ -1,5 +1,3 @@
 <template>
-  <div>
-    This is result page
-  </div>
+  <div>This is result page</div>
 </template>

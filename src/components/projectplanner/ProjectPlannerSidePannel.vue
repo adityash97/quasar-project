@@ -17,11 +17,11 @@ const links = [
     children: [],
   },
   {
-    title : 'Project Planner',
-    icon : 'checklist',
-    to:{name:'projectplanner/ProjectPlanner'},
+    title: 'Project Planner',
+    icon: 'checklist',
+    to: { name: 'projectplanner/ProjectPlanner' },
     level: 0,
-    children:[]
-  }
+    children: [],
+  },
 ];
 </script>

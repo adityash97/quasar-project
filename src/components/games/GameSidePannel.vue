@@ -17,11 +17,11 @@ const links = [
     children: [],
   },
   {
-    title : 'Reaction Timer',
-    icon : 'bolt',
-    to:{name:'games/ReactionTimer'},
+    title: 'Reaction Timer',
+    icon: 'bolt',
+    to: { name: 'games/ReactionTimer' },
     level: 0,
-    children:[]
-  }
+    children: [],
+  },
 ];
 </script>
