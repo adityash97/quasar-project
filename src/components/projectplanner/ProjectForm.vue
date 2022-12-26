@@ -26,7 +26,14 @@
         <q-toggle v-model="completed" label="Completed" />
       </q-card-section>
 
-      <q-card-actions vertical align="right">
+      <q-card-actions horizontal align="right">
+        <q-btn
+          v-if="isEdit"
+          type="button"
+          color="dark"
+          @click="$emit('on-cancel')"
+          >Cancel</q-btn
+        >
         <q-btn type="submit" color="primary">Save</q-btn>
       </q-card-actions>
     </q-form>
@@ -34,12 +41,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 const title = ref('');
 const details = ref('');
 const id = ref(0);
 const completed = ref(false);
-const emit = defineEmits(['on-submit']);
+const emit = defineEmits(['on-submit', 'on-cancel']);
+const isEdit = computed(() => props.isEdit);
 
 const props = defineProps({
   projectFormData: {
@@ -57,7 +65,7 @@ const props = defineProps({
 });
 
 onMounted(() => {
-  if (props.isEdit) {
+  if (isEdit.value) {
     id.value = props.projectFormData?.id;
     title.value = props.projectFormData?.title;
     details.value = props.projectFormData?.details;
@@ -68,14 +76,14 @@ onMounted(() => {
 const onSubmit = () => {
   console.log('form submitted');
   const data = {
-    id: props.isEdit
+    id: isEdit.value
       ? id.value
       : Number(Math.floor(1000 + Math.random() * 9000).toString()),
     title: title.value,
     details: details.value,
     completed: completed.value,
   };
-  emit('on-submit', data, props.isEdit);
+  emit('on-submit', data, isEdit.value);
 
   id.value = 0;
   title.value = '';
