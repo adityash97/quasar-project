@@ -84,12 +84,13 @@
         <project-form @on-submit="onSubmitProjectForm" />
       </template>
     </div>
-
+    <!-- Edit dialog -->
     <q-dialog v-model="showProjectFormFlag">
       <project-form
         :project-form-data="projectFormData"
         :is-edit="isEditProject"
         @on-submit="onSubmitProjectForm"
+        @on-cancel="showProjectFormFlag = false"
       />
     </q-dialog>
   </q-page>

@@ -26,7 +26,10 @@
         <q-toggle v-model="completed" label="Completed" />
       </q-card-section>
 
-      <q-card-actions vertical align="right">
+      <q-card-actions horizontal align="right">
+        <q-btn type="button" color="dark" @click="$emit('on-cancel')"
+          >Cancel</q-btn
+        >
         <q-btn type="submit" color="primary">Save</q-btn>
       </q-card-actions>
     </q-form>
@@ -39,7 +42,7 @@ const title = ref('');
 const details = ref('');
 const id = ref(0);
 const completed = ref(false);
-const emit = defineEmits(['on-submit']);
+const emit = defineEmits(['on-submit', 'on-cancel']);
 
 const props = defineProps({
   projectFormData: {
