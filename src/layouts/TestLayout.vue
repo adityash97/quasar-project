@@ -7,6 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import TestSidePannel from 'components/test/TestSidePannel.vue';
+import TestSidePannel from 'components/Test/TestSidePannel.vue';
 import MainLayout from './MainLayout.vue';
 </script>
