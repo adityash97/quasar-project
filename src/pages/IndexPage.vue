@@ -5,6 +5,7 @@
         Please find code at :
         <a
           href="https://github.com/adityash97/quasar-project/tree/project-planner-v1"
+          target="_blank"
           >code</a
         >
       </div>
