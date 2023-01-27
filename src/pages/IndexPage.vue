@@ -1,12 +1,24 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
+  <div class="">
+    <div class="row items-center justify-evenly">
+      <div class="text-h5">
+        Please find code at :
+        <a
+          href="https://github.com/adityash97/quasar-project/tree/project-planner-v1"
+          >code</a
+        >
+      </div>
+    </div>
+
+    <q-page class="row items-center justify-evenly">
+      <example-component
+        title="Example component"
+        active
+        :todos="todos"
+        :meta="meta"
+      ></example-component>
+    </q-page>
+  </div>
 </template>
 
 <script setup lang="ts">
