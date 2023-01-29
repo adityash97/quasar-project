@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Quasar Project </q-toolbar-title>
+        <q-toolbar-title> Aditya's Project </q-toolbar-title>
       </q-toolbar>
     </q-header>
 

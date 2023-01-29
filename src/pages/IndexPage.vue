@@ -4,7 +4,7 @@
       <div class="text-h5">
         Please find code at :
         <a
-          href="https://github.com/adityash97/quasar-project/tree/project-planner-v1"
+          href="https://github.com/adityash97/quasar-project/"
           target="_blank"
           >code</a
         >

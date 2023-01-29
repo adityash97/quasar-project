@@ -1,12 +1,27 @@
 <template>
-  <project-display-card
+  <!-- <project-display-card
     v-for="project in projects"
     :key="project.id"
     :project="project"
     @showProjectForm="showProjectForm"
     @toggleCompleted="toggelCompleted"
     @onDelete="onDelete"
-  />
+  /> -->
+
+  <vue-draggable v-model="projects" item-key="index">
+    <template #item="{ index }">
+      <div>
+        <project-display-card
+          v-model="projects[index]"
+          :project="projects[index]"
+          @showProjectForm="showProjectForm"
+          @toggleCompleted="toggelCompleted"
+          @onDelete="onDelete"
+        />
+      </div>
+    </template>
+  </vue-draggable>
+
 </template>
 
 <script setup lang="ts">

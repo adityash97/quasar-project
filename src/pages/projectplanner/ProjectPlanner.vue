@@ -51,6 +51,19 @@
           </q-card-section>
 
           <q-card-section class="q-gutter-lg">
+              <!-- <vue-draggable v-model="projectData" item-key="index" v-if="showAllProjectsFlag">
+                <template #item="{ index }">
+                  <div>
+                    <show-all-projects
+                      v-model="projectData[index]"
+                      @show-project-form="showProjectFormHandler"
+                      @toggle-completed="toggelCompleted"
+                      @on-delete="onDelete"
+                    />
+                  </div>
+                </template>
+              </vue-draggable> -->
+
             <show-all-projects
               v-if="showAllProjectsFlag"
               v-model="projectData"
