@@ -68,7 +68,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import {onMounted} from 'vue';
+import { onMounted } from 'vue';
 
 defineEmits(['showProjectForm', 'toggleCompleted', 'onDelete']);
 const props = defineProps({
@@ -81,8 +81,8 @@ const props = defineProps({
 });
 const project = computed(() => props.project);
 
-onMounted(() =>{
-  console.log("props :",props)
+onMounted(() => {
+  console.log('props :', props);
   // debugger;
-})
+});
 </script>

@@ -3,9 +3,7 @@
     <div class="row items-center justify-evenly">
       <div class="text-h5">
         Please find code at :
-        <a
-          href="https://github.com/adityash97/quasar-project/"
-          target="_blank"
+        <a href="https://github.com/adityash97/quasar-project/" target="_blank"
           >code</a
         >
       </div>

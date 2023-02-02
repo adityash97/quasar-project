@@ -26,7 +26,7 @@
 
       <!-- show projects -->
       <template v-if="showProjectsFlag">
-        <q-card>
+        <q-card class="">
           <q-card-section>
             <q-tabs v-model="innerTab" class="">
               <q-tab
@@ -49,10 +49,11 @@
               />
             </q-tabs>
           </q-card-section>
-
-          <q-card-section class="q-gutter-lg">
-            
-            <show-all-projects
+        </q-card>
+        <div class="row q-gutter-x-sm">
+          <div class="col-9 q-gutter-sm">
+            <q-scroll-area style="height: 55vw; width: 55vw;">
+              <show-all-projects
               v-if="showAllProjectsFlag"
               v-model="projectData"
               @show-project-form="showProjectFormHandler"
@@ -75,8 +76,21 @@
               @toggle-completed="toggelCompleted"
               @on-delete="onDelete"
             />
-          </q-card-section>
-        </q-card>
+          </q-scroll-area>
+
+          </div>
+
+          <div class="col ">
+            <q-card style="min-height: 54vw">
+              <q-card-section class="bg-primary text-white">
+                <div class="text-h6">Unplanned Projects</div>
+                <div class="text-weight-light">Drag Projects here in this area</div>
+              </q-card-section>
+
+              <q-separator />
+            </q-card>
+          </div>
+        </div>
       </template>
 
       <!-- Add Project  -->

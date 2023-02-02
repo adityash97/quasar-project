@@ -21,7 +21,6 @@
       </div>
     </template>
   </vue-draggable>
-
 </template>
 
 <script setup lang="ts">
