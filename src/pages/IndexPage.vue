@@ -1,15 +1,15 @@
 <template>
   <div class="">
-    <div class="row items-center justify-evenly">
+    <!-- <div class="row items-center justify-evenly">
       <div class="text-h5">
         Please find code at :
         <a
-          href="https://github.com/saifah456/todo_quasar"
+          href="https://github.com/adityash97/quasar-project"
           target="_blank"
           >code</a
         >
       </div>
-    </div>
+    </div> -->
 
     <q-page class="row items-center justify-evenly">
       <example-component
