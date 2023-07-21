@@ -2,6 +2,7 @@ import { RouteRecordRaw } from 'vue-router';
 import testroutes from './testRoutes';
 import gameroutes from './gameroutes';
 import projectplannerroutes from './projectplanner';
+import userroutes from './userroutes';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -18,6 +19,11 @@ const routes: RouteRecordRaw[] = [
     path: '/todo',
     component: () => import('layouts/ProjectPlannerLayout.vue'),
     children: projectplannerroutes,
+  },
+  {
+    path: '/login',
+    component: () => import('layouts/AccountLayout.vue'),
+    children: userroutes,
   },
 
   // Always leave this as last one,
